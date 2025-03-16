@@ -1,5 +1,6 @@
 import requests
 import json
+from numpy import array_equal
 
 testaddr = "https://olimp.miet.ru/ppo_it"
 
@@ -19,16 +20,13 @@ def getCoordsAndPrice(addr=testaddr) -> list:
     return listener, sender, price
 
 def getFullMap(addr=testaddr) -> list:
-    alltiles = []
-    hashable = set()
+    alltiles = ['test']
     while len(alltiles) < 16:
         r = requests.get(f"{addr}/api")
         data = json.loads(r.text)
         tile = data["message"]["data"]
-        tileString = ""
-        for i in tile:
-            tileString += "".join(map(str, i))
-        if tileString not in hashable: hashable.add(tileString); alltiles.append(tile)
-    return alltiles
-
+        for i in range(len(alltiles)):
+            print(f"Checking {alltiles[i]} and {tile}")
+            if not(array_equal(alltiles[i], tile)): alltiles.append(tile); 
+    return alltiles[1::]
 print(getFullMap())
