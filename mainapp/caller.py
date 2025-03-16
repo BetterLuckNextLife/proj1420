@@ -17,6 +17,3 @@ def getTestCoordsAndPrice() -> list:
     sender = data["message"]["sender"]
     price = data["message"]["price"]
     return listener, sender, price
-
-print(getTestCoordsAndPrice())
-print(getTestMap())
