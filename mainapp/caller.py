@@ -27,6 +27,8 @@ def getFullMap(addr=testaddr) -> list:
         tile = data["message"]["data"]
         tileString = ""
         for i in tile:
-            tileString += "".join(str(i))
+            tileString += "".join(map(str, i))
         if tileString not in hashable: hashable.add(tileString); alltiles.append(tile)
     return alltiles
+
+print(getFullMap())
