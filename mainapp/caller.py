@@ -3,15 +3,15 @@ import json
 
 testaddr = "https://olimp.miet.ru/ppo_it"
 
-def getTestMap():
-    r = requests.get(testaddr + "/api")
+def getTestMap(addr=testaddr):
+    r = requests.get(f"{addr}/api")
     data = json.loads(r.text)
     tile = data["message"]["data"]
     return tile
 
 
-def getTestCoordsAndPrice() -> list:
-    r = requests.get(testaddr + "/coords")
+def getTestCoordsAndPrice(addr=testaddr) -> list:
+    r = requests.get(f"{addr}/api/coords")
     data = json.loads(r.text)
     listener = data["message"]["listener"]
     sender = data["message"]["sender"]
