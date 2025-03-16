@@ -2,6 +2,7 @@
 **/__pycache__/
 *.pyc
 .venv/
+map.png
 venv/
 .idea/
 debug.log
