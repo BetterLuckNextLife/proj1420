@@ -1,0 +1,61 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+    <title>Главная</title>
+</head>
+
+<body class="bg-gray-100">
+    <div class="h-screen flex-row justify-center items-start bg-gray-100">
+        <!-- Панель навигации -->
+        <nav class="w-full h-28 flex justify-between items-center justify-center bg-white shadow-lg">
+            <div class="h-full p-4 flex items-center justify-center">
+                <h1 class="text-4xl text-center">Карта поверхности</h1>
+            </div>
+        </nav>
+        <!-- Основной контейнер -->
+        <div class="w-full p-10 gap-10 flex justify-center items-start">
+            <div class="flex justify-center">
+                <table>
+                    <tbody>
+                        <tr>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <img src="{ theme/ }" class="w-[768px] h-[768px] border border-black shadow-xl">
+                </div>
+            </div>
+            <div class="flex justify-center items-center">
+                <form class="grid gap-4 p-4 border shadow-lg rounded-lg">
+                    <div class="flex justify-left gap-4 items-center">
+                        <input type="checkbox" name="modules">
+                        <p class="text-xl">Расположение модулей</p>
+                    </div>
+                    <div class="flex justify-left gap-4 items-center">
+                        <input type="checkbox" name="stations">
+                        <p class="text-xl">Расположение станций</p>
+                    </div>
+                    <div class="flex justify-left gap-4 items-center">
+                        <input type="checkbox" name="zones">
+                        <p class="text-xl">Расположение станций с визуализацией зоны покрытия</p>
+                    </div>
+                    <button
+                        type="submit"
+                        name="submit_map"
+                        class="w-full p-2 bg-blue-600 hover:bg-blue-700 text-center text-white text-xl font-semibold rounded shadow-md transition"
+                    >
+                        Отобразить карту
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
