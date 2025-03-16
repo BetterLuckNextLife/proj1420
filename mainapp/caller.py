@@ -20,13 +20,11 @@ def getCoordsAndPrice(addr=testaddr) -> list:
     return listener, sender, price
 
 def getFullMap(addr=testaddr) -> list:
-    alltiles = ['test']
+    alltiles = []
     while len(alltiles) < 16:
         r = requests.get(f"{addr}/api")
         data = json.loads(r.text)
         tile = data["message"]["data"]
-        for i in range(len(alltiles)):
-            print(f"Checking {alltiles[i]} and {tile}")
-            if not(array_equal(alltiles[i], tile)): alltiles.append(tile); 
-    return alltiles[1::]
+        if tile not in alltiles: alltiles.append(tile)
+    return alltiles
 print(getFullMap())
