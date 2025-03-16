@@ -26,5 +26,16 @@ def getFullMap(addr=testaddr) -> list:
         data = json.loads(r.text)
         tile = data["message"]["data"]
         if tile not in alltiles: alltiles.append(tile)
+
+    print(type(json.dumps(alltiles)))
     return alltiles
-print(getFullMap())
+
+def get16UniqueTiles():
+    unique_tiles = set()
+    while len(unique_tiles) < 16:
+        tile = getTestMap()
+        tile_tuple = tuple(tuple(row) for row in tile)
+        unique_tiles.add(tile_tuple)
+    return list(unique_tiles)
+
+getFullMap()
