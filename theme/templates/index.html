@@ -16,23 +16,25 @@
             <div class="h-full p-4 flex items-center justify-center">
                 <h1 class="text-4xl text-center">Карта поверхности</h1>
             </div>
+            <div class="h-full p-4 flex items-center justify-center">
+                <input 
+                    type="text" 
+                    name="linker" 
+                    class="w-[800px] p-2 text-gray-800 text-xl placeholder-gray-400 bg-gray-100 border border-gray-300 rounded focus:outline focus:outline-primary-500 transition" 
+                    placeholder="Адрес для получения данных"
+                    required
+                >
+            </div>
         </nav>
         <!-- Основной контейнер -->
         <div class="w-full p-10 gap-10 flex justify-center items-start">
             <div class="flex justify-center">
-                <table>
-                    <tbody>
-                        <tr>
-
-                        </tr>
-                    </tbody>
-                </table>
                 <div>
-                    <img src="{ theme/ }" class="w-[768px] h-[768px] border border-black shadow-xl">
+                    <img src="{% static 'theme/map.png' %}" class="w-[768px] h-[768px] border border-black shadow-xl">
                 </div>
             </div>
-            <div class="flex justify-center items-center">
-                <form class="grid gap-4 p-4 border shadow-lg rounded-lg">
+            <div class="grid gap-4 p-4 border shadow-lg rounded-lg">
+                <form class="grid gap-4">
                     <div class="flex justify-left gap-4 items-center">
                         <input type="checkbox" name="modules">
                         <p class="text-xl">Расположение модулей</p>
@@ -52,7 +54,15 @@
                     >
                         Отобразить карту
                     </button>
+                    <p class="text-lg text-gray-400">! Для отображения карты введите адрес в верхней части экрана !</p>
                 </form>
+                <hr>
+                <p class="text-2xl text-center">Легенда карты</p>
+                <div class="w-full h-8 bg-gradient-to-r from-black via-red-500 to-[#ff0000]"></div>
+                <div class="flex justify-between items-center">
+                    <p>0</p>
+                    <p>255</p>
+                </div>
             </div>
         </div>
     </div>
