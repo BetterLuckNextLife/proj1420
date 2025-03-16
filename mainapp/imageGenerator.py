@@ -1,7 +1,5 @@
 from PIL import Image
 import numpy as np
-import sys
-sys.path.append("../mainapp/")
 import caller
 
 
@@ -18,7 +16,7 @@ def gen_image(modules: bool = False, stations: bool = False, coords: bool = Fals
                 for j in range(64):
                     data[tile*64+i, tile2*64+j] = [arr[tile2+tile][i][j], 0, 0]
     img = Image.fromarray(data)
-    img.save("templates/map.png")
+    img.save("map.png")
 
 
 if __name__ == "__main__":
