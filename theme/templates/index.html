@@ -19,13 +19,7 @@
                 <h1 class="text-4xl text-center">Карта поверхности</h1>
             </div>
             <div class="h-full p-4 flex items-center justify-center">
-                <input 
-                    type="text" 
-                    name="linker"
-                    class="w-[800px] p-2 text-gray-800 text-xl placeholder-gray-400 bg-gray-100 border border-gray-300 rounded focus:outline focus:outline-primary-500 transition" 
-                    placeholder="Адрес для получения данных"
-                    required
-                >
+                
             </div>
         </nav>
         <!-- Основной контейнер -->
@@ -36,7 +30,8 @@
                 </div>
             </div>
             <div class="grid gap-4 p-4 border shadow-lg rounded-lg">
-                <form class="grid gap-4">
+                <form method="post" class="grid gap-4">
+                    {% csrf_token %}
                     <div class="flex justify-left gap-4 items-center">
                         <input type="checkbox" name="modules">
                         <p class="text-xl">Расположение модулей</p>
@@ -49,6 +44,13 @@
                         <input type="checkbox" name="zones">
                         <p class="text-xl">Расположение станций с визуализацией зоны покрытия</p>
                     </div>
+                    <input 
+                        type="text" 
+                        name="linker"
+                        class="w-full p-2 text-gray-800 text-xl placeholder-gray-400 bg-gray-100 border border-gray-300 rounded focus:outline focus:outline-primary-500 transition" 
+                        placeholder="Адрес для получения данных"
+                        required
+                    >
                     <button
                         type="submit"
                         name="submit_map"
@@ -56,7 +58,6 @@
                     >
                         Отобразить карту
                     </button>
-                    <p class="text-lg text-gray-400">! Для отображения карты введите адрес в верхней части экрана !</p>
                 </form>
                 <hr>
                 <p class="text-2xl text-center">Легенда карты</p>
@@ -65,6 +66,15 @@
                     <p>0</p>
                     <p>Высота рельефа</p>
                     <p>255</p>
+                </div>
+                <hr>
+                <div class="flex gap-4 justify-left items-center">
+                    <div class="w-8 h-8 bg-blue-600 rounded-full"></div>
+                    <p class="text-lg">Модули</p>
+                </div>
+                <div class="flex gap-4 justify-left items-center">
+                    <div class="w-8 h-8 bg-lime-600 rounded-full"></div>
+                    <p class="text-lg">Станции</p>
                 </div>
             </div>
         </div>
